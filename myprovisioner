@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Criando os diretórios
+mkdir /publico
+mkdir /adm
+mkdir /ven
+mkdir /sec
+
+# Criando os grupos
+groupadd GPR_ADM
+groupadd GPR_VEN
+groupadd GPR_SEC
+
+# Criando os usuários para o grupo GPR_ADM
+useradd -m -d /home/carlos -g GPR_ADM carlos
+useradd -m -d /home/maria -g GPR_ADM maria
+useradd -m -d /home/joao -g GPR_ADM joao
+
+# Criando os usuários para o grupo GPR_VEN
+useradd -m -d /home/debora -g GPR_VEN debora
+useradd -m -d /home/sebastiana -g GPR_VEN sebastiana
+useradd -m -d /home/roberto -g GPR_VEN roberto
+
+# Criando os usuários para o grupo GPR_SEC
+useradd -m -d /home/josefina -g GPR_SEC josefina
+useradd -m -d /home/amanda -g GPR_SEC amanda
+useradd -m -d /home/rogerio -g GPR_SEC rogerio
+
+# Configurando as permissões dos diretórios
+chown -R root:root /publico
+chmod 775 /publico
+
+chown -R root:GPR_ADM /adm
+chmod 770 /adm
+
+chown -R root:GPR_VEN /ven
+chmod 770 /ven
+
+chown -R root:GPR_SEC /sec
+chmod 770 /sec
